@@ -12,11 +12,12 @@ public:
     int getGreen() const { return green; }
     int getBlue() const { return blue; }
 
-    static RGB WHITE() { return RGB(255, 255, 255); }
-    static RGB BLACK() { return RGB(0, 0, 0); }
-    static RGB RED() { return RGB(255, 0, 0); }
-    static RGB GREEN() { return RGB(0, 255, 0); }
-    static RGB BLUE() { return RGB(0, 0, 255); }
+    // Declare (but don’t define) static methods
+    static RGB WHITE();
+    static RGB BLACK();
+    static RGB RED();
+    static RGB GREEN();
+    static RGB BLUE();
 };
 
 #endif

@@ -1,6 +1,6 @@
 #include "RGB.h"
 
-// Static functions returning common colors
+// Define static functions here
 RGB RGB::WHITE() { return RGB(255, 255, 255); }
 RGB RGB::BLACK() { return RGB(0, 0, 0); }
 RGB RGB::RED() { return RGB(255, 0, 0); }
