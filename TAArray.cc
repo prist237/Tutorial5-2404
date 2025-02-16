@@ -1,42 +1,47 @@
 #include "TAArray.h"
 
-// Default constructor
+// Constructor
 TAArray::TAArray() {}
 
 // Destructor
 TAArray::~TAArray() {
-    for (TextArea* ta : array) {
+    for (TextArea* ta : textAreas) {
         delete ta;
     }
+    textAreas.clear();
 }
 
-// Add at the back
+// Add a TextArea at the end
 void TAArray::add(TextArea* ta) {
-    array.push_back(ta);
+    textAreas.push_back(ta);
 }
 
-// Add at index
+// Add a TextArea at a specific index
 bool TAArray::add(TextArea* ta, int index) {
-    if (index < 0 || index > array.size()) return false;
-    array.insert(array.begin() + index, ta);
+    if (index < 0 || index > textAreas.size()) {
+        return false;
+    }
+    textAreas.insert(textAreas.begin() + index, ta);
     return true;
 }
 
 // Remove by index
 TextArea* TAArray::remove(int index) {
-    if (index < 0 || index >= array.size()) return nullptr;
-    TextArea* removed = array[index];
-    array.erase(array.begin() + index);
-    return removed;
+    if (index < 0 || index >= textAreas.size()) {
+        return nullptr;
+    }
+    TextArea* ta = textAreas[index];
+    textAreas.erase(textAreas.begin() + index);
+    return ta;
 }
 
-// Remove by id
+// Remove by ID
 TextArea* TAArray::remove(const std::string& id) {
-    for (auto it = array.begin(); it != array.end(); ++it) {
+    for (auto it = textAreas.begin(); it != textAreas.end(); ++it) {
         if ((*it)->getId() == id) {
-            TextArea* removed = *it;
-            array.erase(it);
-            return removed;
+            TextArea* ta = *it;
+            textAreas.erase(it);
+            return ta;
         }
     }
     return nullptr;
@@ -44,19 +49,24 @@ TextArea* TAArray::remove(const std::string& id) {
 
 // Get by index
 TextArea* TAArray::get(int index) const {
-    if (index < 0 || index >= array.size()) return nullptr;
-    return array[index];
+    if (index < 0 || index >= textAreas.size()) {
+        return nullptr;
+    }
+    return textAreas[index];
 }
 
-// Get by id
+// Get by ID
 TextArea* TAArray::get(const std::string& id) const {
-    for (TextArea* ta : array) {
-        if (ta->getId() == id) return ta;
+    for (TextArea* ta : textAreas) {
+        if (ta->getId() == id) {
+            return ta;
+        }
     }
     return nullptr;
 }
 
 // Get size
 int TAArray::getSize() const {
-    return array.size();
+    return textAreas.size();
 }
+
