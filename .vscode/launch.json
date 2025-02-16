@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/tedomprisca/Desktop/2404/Tutorials/tutorial5/tutorial5/tutorial5",
+      "program": "/Users/tedomprisca/Desktop/2404/Tutorials/tutorial5/tutorial5/tutorial5/build/Debug/outDebug"
+    }
+  ]
+}
